@@ -1,6 +1,9 @@
 const initialState = {
   modalVisible: false,
   selectedName: "",
+  withdrawnAmount: 0,
+  fee: 0,
+  netAmount: 0,
 };
 const CLOSE_MODAL = "closeModal";
 const OPEN_MODAL = "openModal";
@@ -18,11 +21,14 @@ export function closeModal() {
   };
 }
 export function openModal(data) {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
     try {
+      const transactions = getState().data.transactions;
+      const dataToDisplay = transactions.find((x) => x.name === data);
+
       dispatch({
         type: OPEN_MODAL,
-        payload: { data },
+        payload: { dataToDisplay },
       });
     } catch (error) {
       console.log(error);
@@ -36,13 +42,19 @@ const modalReducer = (state = initialState, action) => {
       return {
         ...state,
         modalVisible: true,
-        selectedName: action.payload.data,
+        selectedName: action.payload.dataToDisplay.name,
+        withdrawnAmount: action.payload.dataToDisplay.withAmount,
+        fee: action.payload.dataToDisplay.fee,
+        netAmount: action.payload.dataToDisplay.netAmount,
       };
     case CLOSE_MODAL:
       return {
         ...state,
         modalVisible: false,
         selectedName: "",
+        withdrawnAmount: 0,
+        fee: 0,
+        netAmount: 0,
       };
     default:
       return state;
