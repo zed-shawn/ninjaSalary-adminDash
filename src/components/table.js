@@ -35,8 +35,9 @@ export default function Table() {
         ],
       },
     ],
-    []
+    [month]
   );
+
   const {
     getTableProps,
     getTableBodyProps,

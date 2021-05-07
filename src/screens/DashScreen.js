@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React from "react";
 import nsLogo from "../assets/nsLogo.png";
 import Table from "../components/Table";
 import ModalScreen from "../components/Modal";
 
 import "./DashScreen.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function DashScreen() {
   const adminName = useSelector((state) => state.data.creds.adminName);
