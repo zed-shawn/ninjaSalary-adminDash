@@ -1,9 +1,13 @@
 import React, { useState, useEffect, useCallback } from "react";
 import nsLogo from "../assets/nsLogo.png";
 import "./DashScreen.css";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function DashScreen() {
-  const adminName = "Joy Kumar Saha";
+  const adminName = useSelector((state) => state.data.creds.adminName);
+  const transactions = useSelector((state) => state.data.transactions);
+  console.log(transactions);
+
   return (
     <div className="Root">
       <header className="Header">
@@ -21,7 +25,7 @@ export default function DashScreen() {
           </a>
         </div>
       </header>
-      <body className="Body"></body>
+      <div className="Body"></div>
       <footer className="Footer"></footer>
     </div>
   );
