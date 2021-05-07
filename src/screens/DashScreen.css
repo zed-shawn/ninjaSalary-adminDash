@@ -44,10 +44,22 @@
 }
 
 .Body {
-  background-color: #2e2a57;
+  background-color: #242145;
   height: 78vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
 }
 .Footer {
   background-color: #302c5c;
   height: 10vh;
+}
+
+.Table-title {
+  position: absolute;
+  left: 50%;
+  font-family: Como;
+  height: 5vh;
+  color: white;
+  margin-bottom: 20vh;
 }

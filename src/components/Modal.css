@@ -1,0 +1,7 @@
+.Modal {
+  flex: 1;
+  display: flex;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}

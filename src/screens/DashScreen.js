@@ -1,15 +1,17 @@
 import React, { useState, useEffect, useCallback } from "react";
 import nsLogo from "../assets/nsLogo.png";
+import Table from "../components/Table";
+import ModalScreen from "../components/Modal";
+
 import "./DashScreen.css";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function DashScreen() {
   const adminName = useSelector((state) => state.data.creds.adminName);
-  const transactions = useSelector((state) => state.data.transactions);
-  console.log(transactions);
 
   return (
     <div className="Root">
+      <ModalScreen />
       <header className="Header">
         <a href="https://ninjasalary.com/">
           <img src={nsLogo} className="Logo" alt="logo" />
@@ -25,7 +27,9 @@ export default function DashScreen() {
           </a>
         </div>
       </header>
-      <div className="Body"></div>
+      <div className="Body">
+        <Table />
+      </div>
       <footer className="Footer"></footer>
     </div>
   );

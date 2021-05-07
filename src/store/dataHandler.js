@@ -48,6 +48,10 @@ const dataReducer = (state = initialState, action) => {
             ch.net_amount
           )
       );
+      const uniqueTrans = updatedTransactions.filter(
+        (v, i, a) => a.findIndex((t) => t.name === v.name) === i
+      );
+
       const updatedStatus = {
         netAmount: data.net_ns_amount,
         month: data.month,
@@ -55,7 +59,7 @@ const dataReducer = (state = initialState, action) => {
       return {
         ...state,
         creds: updatedCreds,
-        transactions: updatedTransactions,
+        transactions: uniqueTrans,
         status: updatedStatus,
       };
     default:
