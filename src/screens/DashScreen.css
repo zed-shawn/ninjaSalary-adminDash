@@ -1,0 +1,53 @@
+.Root {
+  text-align: center;
+}
+
+.Logo {
+  height: 12vh;
+  margin-left: 3vh;
+}
+
+.Header {
+  background-color: #302c5c;
+  height: 12vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Header-right {
+  margin-right: 3vh;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 18vw;
+}
+.Header-title {
+  position: absolute;
+  left: 45%;
+  font-family: Como;
+}
+.Intro-text {
+  color: white;
+  font-size: 3vh;
+
+  font-family: Como;
+}
+.Logout-link {
+  color: white;
+  font-family: Como;
+  font-size: 2vh;
+}
+
+.Body {
+  background-color: #2e2a57;
+  height: 78vh;
+}
+.Footer {
+  background-color: #302c5c;
+  height: 10vh;
+}
