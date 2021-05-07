@@ -48,7 +48,7 @@
   height: 78vh;
   width: 100vw;
   align-items: center;
-  justify-content: center;
+  display: flex;
 }
 .Footer {
   background-color: #302c5c;

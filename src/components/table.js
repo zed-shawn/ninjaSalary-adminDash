@@ -13,19 +13,26 @@ export default function Table() {
   );
 
   const data = useSelector((state) => state.data.transactions);
+  const month = useSelector((state) => state.data.status.month);
+
   const columns = React.useMemo(
     () => [
       {
-        Header: "Name",
-        accessor: "name",
-      },
-      {
-        Header: "Withdrawn",
-        accessor: "withAmount",
-      },
-      {
-        Header: "Net Amount",
-        accessor: "netAmount",
+        Header: `Transaction History for ${month}`,
+        columns: [
+          {
+            Header: "Name",
+            accessor: "name",
+          },
+          {
+            Header: "Withdrawn",
+            accessor: "withAmount",
+          },
+          {
+            Header: "Net Amount",
+            accessor: "netAmount",
+          },
+        ],
       },
     ],
     []
@@ -52,7 +59,7 @@ export default function Table() {
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (
               <th
-                {...column.getHeaderProps()}
+                {...column.getHeaderProps(column.getSortByToggleProps())}
                 style={{
                   borderBottom: "solid 3px white",
                   borderRight: "solid .1px gray",
@@ -65,6 +72,9 @@ export default function Table() {
                 }}
               >
                 {column.render("Header")}
+                <span>
+                  {column.isSorted ? (column.isSortedDesc ? "🔽" : "🔼") : ""}
+                </span>
               </th>
             ))}
           </tr>
